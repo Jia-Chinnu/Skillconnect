@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .assistant-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        #chat-window {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .user-message {
+            color: blue;
+            text-align: right;
+        }
+        .assistant-message {
+            color: green;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="assistant-container">
+        <h2>Digital Assistant</h2>
+        <div id="chat-window"></div>
+        <input type="text" id="user-input" placeholder="Ask me anything..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const chatWindow = document.getElementById('chat-window');
+
+            // Display user message
+            if (userInput) {
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('message', 'user-message');
+                userMessageDiv.textContent = `User: ${userInput}`;
+                chatWindow.appendChild(userMessageDiv);
+
+                // Generate assistant response
+                let assistantResponse = '';
+                if (userInput.toLowerCase() === 'hello') {
+                    assistantResponse = 'Assistant: Hello! How can I help you today?';
+                } else if (userInput.toLowerCase().includes('your name')) {
+                    assistantResponse = 'Assistant: I am your digital assistant!';
+                } else if (userInput.toLowerCase().includes('help')) {
+                    assistantResponse = 'Assistant: Sure! What do you need help with?';
+                } else {
+                    assistantResponse = 'Assistant: I am sorry, I do not understand that.';
+                }
+
+                // Display assistant message
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.classList.add('message', 'assistant-message');
+                assistantMessageDiv.textContent = assistantResponse;
+                chatWindow.appendChild(assistantMessageDiv);
+
+                // Clear the input field
+                document.getElementById('user-input').value = '';
+
+                // Scroll to the bottom of the chat window
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+        }
+    </script>
+
+</body>
+</html>

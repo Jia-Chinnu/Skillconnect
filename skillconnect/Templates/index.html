@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Georgia:wght@700&display=swap" rel="stylesheet">
+    <title>Skillconnect</title>
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .custom-navbar {
+            background: linear-gradient(to right, #ff6f61, #de4d2e);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffe6e6 !important;
+            text-decoration: underline;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background-image: url('https://cdn.prod.website-files.com/6278a25acc3db4aaa47a3aa5/66d1a5ee13436861cc3c4939_measuring%20training%20effectiveness.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay-text {
+            font-family: 'Georgia', serif;
+            font-size: 80px; 
+            font-weight: bold;
+            color: #f5f5f5; 
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); 
+            padding: 25px 35px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s; 
+            margin-bottom: 20px;
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+
+        .overlay-text:hover {
+            background-color: rgba(255, 255, 255, 0.2); 
+            transform: scale(1.05); 
+            color: #ffd700; 
+        }
+
+        .opportunities-text {
+            font-family: 'Verdana', sans-serif;
+            font-size: 30px;
+            color: #ffcc00;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 15px;
+            line-height: 1.5;
+            max-width: 700px;
+        }
+
+        .search-bar {
+            margin-top: 40px;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            gap: 15px;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .search-bar input {
+            border-radius: 30px;
+            border: 2px solid #de4d2e;
+        }
+
+        .search-bar button {
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff8c00;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .notifications-container {
+            position: relative;
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            overflow: hidden;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .notification {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 220px;
+            transition: transform 0.3s;
+        }
+
+        .notification:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .overlay-text {
+                font-size: 40px;
+            }
+
+            .opportunities-text {
+                font-size: 24px;
+            }
+
+            .notification {
+                width: 180px;
+            }
+
+            .feature-item {
+                width: 100%; /* Stack features on smaller screens */
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #de4d2e;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Call-to-Action Button */
+        .cta-button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #ff6f61;
+            color: white;
+            border-radius: 30px;
+            border: none;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4d4d;
+            transform: scale(1.05);
+        }
+.dive-images {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space items evenly */
+    padding: 20px; /* Padding around the container */
+}
+
+.image-item {
+    flex: 0 0 10%; /* Each item takes 30% of the container width */
+    margin: 5px; /* Space between items */
+    overflow: hidden; /* Prevent overflow */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.image-item img {
+    width: 50%; /* Full width of the container */
+    height: 20%; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+        .image-item:hover {
+            transform: scale(1.03);
+        }
+
+        .platform-overview {
+            padding: 40px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .hero {
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            width: 30%;
+            margin: 10px;
+            text-align: left;
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            padding: 15px; 
+            box-shadow: 0 4px 20px rgba(0,0,0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .cta-section {
+            background-color: #e0e0e0;
+        }
+
+
+
+    </style>
+</head>
+<body>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Skillconnect</title>
+</head>
+<body> <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Skillconnect</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.html">login</a>
+                </li>
+               <li class="nav-item">
+    <a class="nav-link" href="about.html">About</a>
+</li>  <li class="nav-item">
+    <a class="nav-link" href="documentation.html">Documentation</a>
+</li>
+
+                <form class="d-flex" method="POST" action="{% url 'find_jobs' %}" role="search">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" name="skills" placeholder="Enter your skills..." aria-label="Search" required>
+    <button class="btn btn-outline-light" type="submit">Search</button>
+</form>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+   <div class="image-container">
+    <div class="overlay-text">India's No. 1 Platform</div>
+    <div class="opportunities-text">Discover 50 Lakh Career Opportunities</div>
+   
+</div>
+
+<script>
+    document.getElementById('search-button').onclick = function() {
+        const skills = document.getElementById('search-input').value; // Optional: capture skills input
+        window.location.href = 'skills.html'; // Redirect to the skills page
+    };
+</script>
+
+        <div class="notifications-container">
+            <div class="notification">Got a Job? 🎉</div>
+            <div class="notification">Jia got a job! 🎉</div>
+            <div class="notification">Simran got a job! 🎉</div>
+        </div>
+
+   <button class="cta-button" id="joinNowButton">Join Now</button>
+
+<div id="coursesPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Select a Course</h2>
+        <ul>
+            <li><button class="course-button">Web Development</button></li>
+            <li><button class="course-button">Data Science</button></li>
+            <li><button class="course-button">Digital Marketing</button></li>
+            <li><button class="course-button">Graphic Design</button></li>
+            <li><button class="course-button">Machine Learning</button></li>
+        </ul>
+        <label for="choices">Choose an option:</label>
+    </div>
+</div><style>
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.popup-content {
+    background-color: #fefefe; /* White background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Gray border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width */
+}
+
+.close {
+    color: #aaa; /* Gray */
+    float: right; /* Right align */
+    font-size: 28px; /* Large font */
+    font-weight: bold; /* Bold text */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Darker on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor on hover */
+}</style>
+<script>
+    const joinNowButton = document.getElementById('joinNowButton');
+    const coursesPopup = document.getElementById('coursesPopup');
+    const closeButton = document.querySelector('.close');
+
+    // Show the pop-up when "Join Now" is clicked
+    joinNowButton.addEventListener('click', () => {
+        coursesPopup.style.display = 'block';
+    });
+
+    // Close the pop-up when the close button is clicked
+    closeButton.addEventListener('click', () => {
+        coursesPopup.style.display = 'none';
+    });
+
+    // Close the pop-up if the user clicks anywhere outside of the pop-up content
+    window.onclick = function(event) {
+        if (event.target === coursesPopup) {
+            coursesPopup.style.display = 'none';
+        }
+    };
+</script>
+
+
+    </div>
+</div><style>
+.coursesPopup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure the popup is on top */
+}
+
+.coursesPopup .popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.coursesPopup .course-button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 80%;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.coursesPopup .course-button:hover {
+    background-color: #de4d2e;
+}
+</style><script></script>
+    </div>
+
+    <section class="platform-overview">
+        <div class="hero">
+            <h1>Bridge Your Skill Gaps with Digital Tools & Training</h1>
+            <p>Empower yourself with the resources and support you need to thrive in today's digital landscape.</p>
+            <a href="#courses" class="cta-button">Browse Courses</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <h2>Training Programs</h2>
+                <p>Explore a variety of training programs tailored to enhance your skills in key areas.</p>
+                <img src="https://thumbs.dreamstime.com/b/colleagues-attending-online-corporate-training-modern-office-space-male-female-sitting-session-large-screen-313075014.jpg" alt="Training Programs">
+            </div>
+            <div class="feature-item">
+                <h2>Digital Tools</h2>
+                <p>Access powerful digital tools designed to streamline your learning and boost productivity.</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn6Xip_r1HveT36ovFlz7azRc7-4lT95W1Cw&s" alt="Digital Tools">
+            </div>
+            <div class="feature-item">
+                <h2>Personalized Support</h2>
+                <p>Get started with personalized assistance to help you navigate your learning journey.</p>
+                <img src="https://images.hiverhq.com/blog/wp-content/uploads/2017/08/tr:pr-true/Delivering-Personalized-Customer-Service.png" alt="Personalized Support">
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Transform Your Skills?</h2>
+           <p><a href="{% url 'digital assistance' %}">Get Started with Digital Assistance</a></p>
+        </div>
+    </section>
+
+
+        <!-- Add more images as needed -->
+    </div>
+    
+ <section id="courses" class="platform-overview">
+    <h2 class="courses-title">Explore Our Courses</h2>
+    <div class="courses-container">
+        <div class="course-item">
+            <h3>Data Science Basics</h3>
+            <p>Learn the fundamentals of data science and analytics, and unlock the power of data.</p>
+            <a href="https://www.google.com/search?q=datasciene+courses&oq=datasciene+courses&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIPCAEQABgNGLEDGIAEGMcFMgwIAhAAGA0YgAQYxwUyDAgDEAAYDRiABBjHBTIMCAQQABgNGIAEGMcFMgwIBRAAGA0YgAQYxwUyDAgGEAAYDRiABBjHBTIMCAcQABgNGIAEGMcFMgwICBAAGA0YgAQYxwUyDAgJEAAYDRiABBjHBdIBCTg0OTNqMGoxNagCCLACAQ&sourceid=chrome&ie=UTF-8" class="cta-button">Enroll Now</a> <!-- Link to Data Science course -->
+        </div>
+        <div class="course-item">
+            <h3>Digital Marketing Strategies</h3>
+            <p>Master the skills needed for effective online marketing and grow your brand.</p>
+            <a href="https://www.google.com/search?q=digital+marketing+dtrsategied&oq=digital+marketing+dtrsategied&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyBwgDECEYjwLSAQoxNzAzN2owajE1qAIIsAIB&sourceid=chrome&ie=UTF-8" class="cta-button">Enroll Now</a> <!-- Link to Digital Marketing course -->
+        </div>
+        <div class="course-item">
+            <h3>Project Management Essentials</h3>
+            <p>Gain essential skills to manage projects efficiently and lead teams successfully.</p>
+            <a href="https://www.atlassian.com/software/confluence?gclsrc=aw.ds&&campaign=18330624135&adgroup=139674815685&targetid=kwd-1758508150&matchtype=e&network=g&device=c&device_model=&creative=679859021218&keyword=software%20project%20management%20software&placement=&target=&ds_eid=700000001542923&ds_e1=GOOGLE&gad_source=1&gclid=Cj0KCQjwm5e5BhCWARIsANwm06iviASmYKLFZZQXJ9pJOWuvRX64WWVImK7wo6NY3heAG33HpwHFU08aAtrfEALw_wcB" class="cta-button">Enroll Now</a> <!-- Link to Project Management course -->
+        </div>
+    </div>
+</section>
+
+<style>
+    .platform-overview {
+        padding: 40px;
+        text-align: center;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .courses-title {
+        font-size: 2.5em;
+        color: #de4d2e;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .courses-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .course-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        flex: 0 0 30%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .course-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #ff6f61;
+        color: white;
+        border-radius: 30px;
+        border: none;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #ff4d4d;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .course-item {
+            flex: 0 0 100%; /* Stack items on smaller screens */
+        }
+
+        .courses-title {
+            font-size: 2em; /* Adjust title size for smaller screens */
+        }
+    }
+</style>
+
+<section id="testimony" class="platform-overview">
+    <h2 class="testimonials-title">What Our Users Say</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <p>"Skillconnect transformed my career! The training programs were comprehensive and easy to follow."</p>
+            </div>
+            <div class="testimonial-author">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvyHl9RyWxXxLzLI1DN7XEZP1B7uL0TnSzQ&s" alt="Aditi" class="author-image">
+                <h4>Aditi</h4>
+                <span>Data Scientist</span>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <p>"The personalized support made all the difference. I feel equipped to tackle any challenge!"</p>
+            </div>
+            <div class="testimonial-author">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnoPN8K0ROp9fSFAthzNm1c77VKBe5T22jtg&s" alt="Rahul" class="author-image">
+                <h4>Rahul</h4>
+                <span>Marketing Manager</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .testimonials-title {
+        font-size: 2.5em;
+        color: #de4d2e;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonials-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .testimonial-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        flex: 0 0 45%; /* Adjust width as necessary */
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial-content {
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .testimonial-content p {
+        font-style: italic;
+        font-size: 1.1em;
+        color: #555;
+        margin: 0;
+        position: relative;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+    }
+
+    .author-image {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    .testimonial-author h4 {
+        margin: 0;
+        color: #de4d2e;
+    }
+
+    .testimonial-author span {
+        color: #777;
+        font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+        .testimonial-item {
+            flex: 0 0 100%; /* Stack testimonials on smaller screens */
+        }
+    }
+</style>
+
+<section id="events" class="platform-overview">
+    <h2 class="event-title">Upcoming Events</h2>
+    <div class="events-container">
+        <div class="event-item">
+            <div class="event-icon">
+                <i class="bi bi-calendar-event"></i>
+            </div>
+            <div class="event-details">
+                <h3>Webinar on Career Growth</h3>
+                <p class="event-date">Nov 15, 2024</p>
+                <p class="event-description">Join us for an insightful webinar to explore strategies for career advancement and personal branding.</p>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-icon">
+                <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="event-details">
+                <h3>Workshop: Digital Marketing</h3>
+                <p class="event-date">Dec 1, 2024</p>
+                <p class="event-description">Hands-on workshop covering the latest trends in digital marketing and effective strategies to enhance your skills.</p>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
+            <div class="event-details">
+                <h3>Networking Event</h3>
+                <p class="event-date">Jan 10, 2025</p>
+                <p class="event-description">Connect with industry professionals and expand your network at our exclusive networking event.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .platform-overview {
+        padding: 40px;
+        text-align: center;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-title {
+        font-size: 2.5em;
+        color: #de4d2e;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .events-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .event-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        flex: 0 0 30%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .event-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .event-icon {
+        font-size: 40px;
+        color: #de4d2e;
+        margin-bottom: 15px;
+    }
+
+    .event-details {
+        text-align: left;
+    }
+
+    .event-date {
+        font-size: 1.1em;
+        color: #666;
+        margin: 5px 0;
+    }
+
+    .event-description {
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    @media (max-width: 768px) {
+        .event-item {
+            flex: 0 0 100%; /* Stack items on smaller screens */
+        }
+
+        .event-title {
+            font-size: 2em; /* Adjust title size for smaller screens */
+        }
+    }
+</style>
+<section id="contact" class="platform-overview contact-section">
+    <h2 class="contact-title">We’d Love to Hear from You!</h2>
+    <p class="contact-description">Feel free to reach out with any questions or comments.</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <textarea id="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+    <div id="thankYouMessage" style="display:none; margin-top: 20px;">
+        <p>Thank you for your feedback!</p>
+    </div>
+</section>
+
+<script>
+    function handleSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Optionally, you can gather form data here and send it to a server using fetch or XMLHttpRequest
+
+        // Hide the form
+        document.getElementById('contactForm').style.display = 'none';
+
+        // Show the thank-you message
+        document.getElementById('thankYouMessage').style.display = 'block';
+    }
+</script>
+
+<style>
+    .contact-section {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+    .contact-title {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: #333;
+    }
+    .contact-description {
+        margin-bottom: 20px;
+        color: #666;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .cta-button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007BFF;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+        background-color: #0056b3;
+    }
+    #thankYouMessage {
+        font-size: 18px;
+        color: green;
+        text-align: center;
+    }
+</style>
+
+<style>
+    .contact-section {
+        background-color: #f9f9f9; /* Light background for contrast */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .contact-title {
+        font-size: 2.5em;
+        color: #de4d2e;
+        margin-bottom: 10px;
+    }
+
+    .contact-description {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+    .contact-form {
+        max-width: 500px; /* Limit form width */
+        margin: 0 auto; /* Center the form */
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #de4d2e;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #ff8c00;
+        outline: none;
+    }
+
+    .form-group textarea {
+        height: 120px;
+        resize: none; /* Prevent resizing */
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 15px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 18px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #ff4d4d;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .contact-title {
+            font-size: 2em;
+        }
+
+        .contact-description {
+            font-size: 1em;
+        }
+    }
+</style>
+
+<section id="faq" class="platform-overview">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <h3>What courses do you offer?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We offer a variety of courses ranging from data science to digital marketing.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <h3>How can I enroll in a course?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can enroll by clicking on the "Enroll Now" button next to each course.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <h3>Is there any support available after enrollment?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! We provide ongoing support through forums, live Q&A sessions, and dedicated mentors.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <h3>What payment methods do you accept?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We accept various payment methods, including credit cards, PayPal, and bank transfers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Skillconnect. All rights reserved.</p>
+</footer>
+
+<style>
+    .faq-title {
+        font-size: 2.5em;
+        color: #de4d2e;
+        margin-bottom: 30px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+    }
+
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .faq-question:hover {
+        background-color: #f1f1f1;
+    }
+
+    .faq-answer {
+        display: none;
+        padding-top: 10px;
+        font-size: 1.1em;
+        color: #555;
+    }
+
+    .faq-icon {
+        font-size: 1.5em;
+        font-weight: bold;
+        transition: transform 0.3s;
+    }
+
+    .faq-icon.open {
+        transform: rotate(45deg);
+    }
+
+    @media (max-width: 768px) {
+        .faq-title {
+            font-size: 2em;
+        }
+    }
+</style>
+
+<script>
+    function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('.faq-icon');
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.classList.remove('open');
+        } else {
+            answer.style.display = "block";
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+    <!-- Bootstrap JS (and dependencies) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-7u6N4Y7F5pHo/c7D4y80ZnOQ8+neRNPn6jOTuD5Cw/1dxjAbcNvnUVz3I1c9dL5D" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-sYsG5f6M+VwZLwC0heL6ODhw2t0V5lG4qJ3n12HOrT1JotVVkLBNy4cfS0rLg2m9" crossorigin="anonymous"></script>
+</body>
+</html>
+

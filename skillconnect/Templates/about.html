@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>About Us - Skillconnect</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: #343a40;
+        }
+        .hero {
+            background-image: url('https://example.com/your-image.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+        .hero h1 {
+            z-index: 1;
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1s ease;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .card {
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Skillconnect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about/">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/documentation/">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero text-center">
+        <h1 class="display-4">About Skillconnect</h1>
+    </div>
+
+    <div class="container section">
+        <h2 class="text-center mb-4">Our Mission</h2>
+        <p class="text-center">At Skillconnect, we strive to bridge the skill gaps in industrial operations. Our mission is to enhance productivity and reduce costs through targeted training and development opportunities.</p>
+
+        <h2 class="text-center mt-5 mb-4">Why Choose Us?</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Expert Trainers</h5>
+                        <p class="card-text">Learn from industry experts who bring real-world experience into the classroom.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Customized Programs</h5>
+                        <p class="card-text">Tailored training solutions to meet the unique needs of your organization.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Ongoing Support</h5>
+                        <p class="card-text">We provide continuous support and resources even after the training is complete.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mt-5 mb-4">Join Us in Driving Change</h2>
+        <p class="text-center">Industrial operations are often hindered by various inefficiencies, leading to diminished productivity, escalated expenditures, and compromised profitability. Our training programs are designed to empower individuals with the skills they need to excel in their roles and drive operational excellence.</p>
+    </div>
+
+    <footer class="text-center">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about/">About Us</a>
+            <a href="/documentation/">Documentation</a>
+        </div>
+        <p>&copy; 2024 Skillconnect. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
